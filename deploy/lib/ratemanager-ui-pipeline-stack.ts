@@ -27,7 +27,8 @@ export class RateManagerUIPipeLineStack extends cdk.Stack {
         'npm ci',
         'npm run build',
         'npx cdk synth'
-      ]
+      ],
+      primaryOutputDirectory: '../cdk.out'
     });
 
     //console.log(`env is : ${JSON.stringify(context)}`);
