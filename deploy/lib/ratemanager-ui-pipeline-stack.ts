@@ -44,7 +44,7 @@ export class RateManagerUIPipeLineStack extends cdk.Stack {
 
     console.log(`printing the dev context: ${JSON.stringify(devcontext)}`);
 
-    const devstage = pipeline.addStage(new RatemanagerPipeLineStages(this, 'ratemanager-develop', devcontext, {
+    const devstage = pipeline.addStage(new RatemanagerPipeLineStages(this, 'ratemanager-ui-develop', devcontext, {
       env: {
         account: devcontext.accountNumber,
         region: devcontext.region
