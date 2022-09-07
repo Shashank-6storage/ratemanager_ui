@@ -23,6 +23,9 @@ export class RateManagerUIPipeLineStack extends cdk.Stack {
       commands: [
         'npm ci',
         'npm run build',
+        'cd deploy',
+        'npm ci',
+        'npm run build',
         'npx cdk synth'
       ]
     });
