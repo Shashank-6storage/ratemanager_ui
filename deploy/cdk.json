@@ -39,7 +39,7 @@
       "aws-cn"
     ],
     "globals": {
-
+      "appName": "ratemanager-ui"
     },
     "environments": [
       {
