@@ -52,7 +52,7 @@
         "environment": "test",
         "branchName": "test",
         "accountNumber": "760389274302",
-        "region": "ap-south-1"
+        "region": "us-west-2"
       }
     ]
   }
