@@ -29,6 +29,7 @@ export class RateManagers3Stack extends cdk.Stack{
               origin: new origins.S3Origin(ratemanagerUIBucket),
             },
           });
+          
     }
 }
 
