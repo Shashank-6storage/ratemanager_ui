@@ -3,6 +3,8 @@ import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as s3deployment from 'aws-cdk-lib/aws-s3-deployment';
 import { Construct } from 'constructs';
 import { CDKContext } from '../types';
+import * as cloudfront from 'aws-cdk-lib/aws-cloudfront';
+import * as origins from 'aws-cdk-lib/aws-cloudfront-origins'
 
 export class RateManagers3Stack extends cdk.Stack{
     constructor(scope: Construct, id: string, context: CDKContext, props?: cdk.StackProps){
@@ -16,11 +18,17 @@ export class RateManagers3Stack extends cdk.Stack{
         });
 
         // Deployment
-
         new s3deployment.BucketDeployment(this, `ratemanager-deployment-bucket`, {
             sources: [s3deployment.Source.asset('../build')],
             destinationBucket: ratemanagerUIBucket
         });
+
+        // Enable cloud front distribution
+        new cloudfront.Distribution(this, 'distro', {
+            defaultBehavior: {
+              origin: new origins.S3Origin(ratemanagerUIBucket),
+            },
+          });
     }
 }
 
