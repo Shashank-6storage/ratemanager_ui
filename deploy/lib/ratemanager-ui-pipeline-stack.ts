@@ -15,7 +15,7 @@ export class RateManagerUIPipeLineStack extends cdk.Stack {
       'develop',
       {
         connectionArn:
-          "arn:aws:codestar-connections:ap-south-1:760389274302:connection/a8e210f0-f16b-42cb-b377-39ac6e5d5c76"
+          "arn:aws:codestar-connections:ap-south-1:760389274302:connection/2418ce9a-ae6e-4f80-9239-1f83215b83a0"
       });
 
     const synthstep = new ShellStep('Synth', {
