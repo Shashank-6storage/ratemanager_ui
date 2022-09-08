@@ -24,7 +24,7 @@ export class RateManagers3Stack extends cdk.Stack{
         });
 
         // Enable cloud front distribution
-        new cloudfront.Distribution(this, 'distro', {
+        new cloudfront.Distribution(this, 'Rate manager ui cloud front distribution', {
             defaultBehavior: {
               origin: new origins.S3Origin(ratemanagerUIBucket),
             },
