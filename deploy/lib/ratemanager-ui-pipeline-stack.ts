@@ -50,5 +50,22 @@ export class RateManagerUIPipeLineStack extends cdk.Stack {
         region: devcontext.region
       }
     }));
+
+    devstage.addPost(new ManualApprovalStep(`Manual approval before test`));
+
+    const testcontext: CDKContext = {
+      ...scope.node.tryGetContext('environments').find((e: any) => e.branchName === 'test'),
+      ...scope.node.tryGetContext('globals')
+    }
+
+    console.log(`printing the dev context: ${JSON.stringify(testcontext)}`);
+
+    const teststage = pipeline.addStage(new RatemanagerPipeLineStages(this, 'ratemanager-ui-develop', testcontext, {
+      env: {
+        account: testcontext.accountNumber,
+        region: testcontext.region
+      }
+    }));
+
   }
 }
